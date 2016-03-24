@@ -1,0 +1,24 @@
+Index: npc.c
+===================================================================
+--- npc.c	(revision 671)
++++ npc.c	(working copy)
+@@ -1358,11 +1358,16 @@
+ 		int amount = item_list[i*2+0];
+ 		struct item item_tmp;
+ 
+-		memset(&item_tmp,0,sizeof(item_tmp));
+-		item_tmp.nameid = nameid;
+-		item_tmp.identify = 1;
++		if (itemdb_type(nameid) == IT_PETEGG)
++			pet_create_egg(sd, nameid);
++		else
++		{
++			memset(&item_tmp,0,sizeof(item_tmp));
++			item_tmp.nameid = nameid;
++			item_tmp.identify = 1;
+ 
+ 		pc_additem(sd,&item_tmp,amount);
++		}
+ 
+ 		//Log items bought in NPC Cash Shop
+ 		if( log_config.enable_logs&0x20 )
