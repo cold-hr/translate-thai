@@ -1,0 +1,24 @@
+Index: security.txt
+===================================================================
+--- security.txt	(revision 187)
++++ security.txt	(working copy)
+@@ -8,7 +8,7 @@
+ 	/* Config */
+ 	.max_attempt = 3;	//3 Times Wrong Attempt = Ban.
+ 	.ban_hour = 3;		//Hours to ban
+-	.allowed = 1|2|4|8|64|128|512|1024|2048|4096;		//Allowed Settings..
++	.allowed = 1|2|4|8|64|128|512|1024|2048|4096|8192|16384;		//Allowed Settings..
+ 	end;
+ 	
+ OnPCLoginEvent:
+@@ -41,7 +41,9 @@
+ 				"Can't buy items",						//	512
+ 				"Can't Send Guild Invite",				//	1024
+ 				"Can't Receive Guild Invite",			//	2048
+-				"Can't Leave the guild";				//	4096
++				"Can't Leave the guild",				//	4096
++				"Can't Use Item",						//	8192
++				"Can't Click Npc";				//	16384
+ 	while (1){
+ 		mes "[^FFA500 Security System ^000000]";
+ 		mes "Security Status: "+ ((#security>0)?"^00FF00On^000000":"^FF0000Off^000000");
