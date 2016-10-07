@@ -27,6 +27,7 @@ Index: security.c
 +	}
 +	return 0;
 +}
++
  void cant_trade(struct map_session_data **sd, struct map_session_data **target_sd){	// Can't receive/send Trade Requests
  	if (*sd == NULL || *target_sd == NULL)
  		return;
@@ -46,9 +47,6 @@ Index: security.c
 +	}
 +	return 0;
 +}
-+
-+
-+
 +
  void open_vending(struct map_session_data **sd, int *num){
  	if (*sd == NULL)
